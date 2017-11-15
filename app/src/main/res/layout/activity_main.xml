@@ -55,7 +55,8 @@
                 android:id="@+id/btn_main_starapptv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="启动其他appTV测试" />
+                android:text="启动其他appTV测试"
+                android:visibility="gone"/>
         </LinearLayout>
 
     </RelativeLayout>
