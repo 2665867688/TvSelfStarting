@@ -48,6 +48,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private String appName;
     private String appPackageName;
     private String firstActivityName;
+    private String startWay;
     private Drawable drawableIcon;
     private PackageManager pm;
 
@@ -76,6 +77,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         appName = DataUtils.getInstance(this).getString(Contants.appNameKey);
         appPackageName = DataUtils.getInstance(this).getString(Contants.packageNameKey);
         firstActivityName = DataUtils.getInstance(this).getString(Contants.firstActivityKey);
+        startWay = DataUtils.getInstance(this).getString(Contants.startWayKey);
         tvAppDesc.setText("应用名称：" + appName + "\n应用包名：" + appPackageName + "\n第一个启动的Activity：" + firstActivityName);
 //        Toast.makeText(this, ""+appName, Toast.LENGTH_SHORT).show();
         if (!TextUtils.isEmpty(appPackageName)) {
@@ -101,7 +103,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(this, ProgramListActivity.class));
                 break;
             case R.id.btn_main_starapp://启动app测试
-                AppUtils.startApp(this,appPackageName,firstActivityName);
+//                AppUtils.startApp(this,appPackageName,firstActivityName);
+                if (startWay.equals(Contants.startAppWay)) {
+                    Toast.makeText(this, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+                    AppUtils.startApp(this, appPackageName, firstActivityName);
+                } else if (startWay.equals(Contants.startTvWay)) {
+                    Toast.makeText(this, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+                    AppUtils.startTvApp(this, appPackageName, firstActivityName);
+                } else {
+                    Toast.makeText(this, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+                    AppUtils.startApp(this, appPackageName, firstActivityName);
+                }
                 break;
             case R.id.btn_main_thisselfstart://设置界面
                 Intent intent =  new Intent(Settings.ACTION_SETTINGS);

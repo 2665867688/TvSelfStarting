@@ -54,6 +54,9 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
     private List<ProgramInfo> seacherList;
     private TextView tvProgress;
 
+    private Button btnTvWay;
+    private Button btnAppWay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +72,10 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
         btnSeacher.setOnClickListener(this);
         seacherList = new ArrayList<>();
         tvProgress = findViewById(R.id.tv_programlist_progress);
+        btnTvWay = findViewById(R.id.btn_programlist_tvway);
+        btnTvWay.setOnClickListener(this);
+        btnAppWay = findViewById(R.id.btn_programlist_tvapp);
+        btnAppWay.setOnClickListener(this);
 
         recyclerView = findViewById(R.id.recyclerview_programlist);
         list = new ArrayList<>();
@@ -92,7 +99,16 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
                     seacherApp(etSeacher.getText().toString());
                 else
                     Toast.makeText(this, "请输入要搜索的app name 支持模糊查询", Toast.LENGTH_SHORT).show();
-                ;
+                break;
+            case R.id.btn_programlist_tvway:
+                Toast.makeText(this, "tv自启动方式", Toast.LENGTH_SHORT).show();
+                DataUtils.getInstance(ProgramListActivity.this)
+                        .putString(Contants.startWayKey,Contants.startTvWay);
+                break;
+            case R.id.btn_programlist_tvapp:
+                Toast.makeText(this, "app自启动方式", Toast.LENGTH_SHORT).show();
+                DataUtils.getInstance(ProgramListActivity.this)
+                        .putString(Contants.startWayKey,Contants.startAppWay);
                 break;
         }
     }
@@ -139,7 +155,7 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
                     localAppIntent.addCategory("android.intent.category.LAUNCHER");
                     String firstActivityName = AppUtils.getActivities(ProgramListActivity.this, packageInfo.packageName, localTvIntent);
                     if (TextUtils.isEmpty(firstActivityName)) {
-                        firstActivityName= AppUtils.getActivities(ProgramListActivity.this, packageInfo.packageName, localAppIntent);
+                        firstActivityName = AppUtils.getActivities(ProgramListActivity.this, packageInfo.packageName, localAppIntent);
                     }
                     programInfo.setFirstActivityName(firstActivityName);
                     list.add(programInfo);

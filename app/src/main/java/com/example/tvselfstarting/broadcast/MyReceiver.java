@@ -22,15 +22,25 @@ public class MyReceiver extends BroadcastReceiver {
     private static final String ACTION = "android.intent.action.BOOT_COMPLETED";
     private String appPackageName;
     private String firstActivityName;
+    private String startWay;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(ACTION)) {
             appPackageName = DataUtils.getInstance(context).getString(Contants.packageNameKey);
             firstActivityName = DataUtils.getInstance(context).getString(Contants.firstActivityKey);
+            startWay = DataUtils.getInstance(context).getString(Contants.startWayKey);
             if (!TextUtils.isEmpty(appPackageName) && !TextUtils.isEmpty(firstActivityName)) {
-                Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
-                AppUtils.startApp(context, appPackageName, firstActivityName);
+                if (startWay.equals(Contants.startAppWay)) {
+                    Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+                    AppUtils.startApp(context, appPackageName, firstActivityName);
+                } else if (startWay.equals(Contants.startTvWay)) {
+                    Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+                    AppUtils.startTvApp(context, appPackageName, firstActivityName);
+                } else {
+                    Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+                    AppUtils.startApp(context, appPackageName, firstActivityName);
+                }
             }
         }
     }

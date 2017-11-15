@@ -6,13 +6,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/lb_tv_white"
-        android:gravity="center"
-        android:text="请选择您要开机自启动的程序"
-        android:textColor="@android:color/black" />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="请设置启动方式："/>
+      <Button
+          android:id="@+id/btn_programlist_tvway"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="启动方式tv"/>
+      <Button
+          android:id="@+id/btn_programlist_tvapp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="启动方式app"/>
+
+  </LinearLayout>
 
     <TextView
         android:id="@+id/tv_programlist_size"
