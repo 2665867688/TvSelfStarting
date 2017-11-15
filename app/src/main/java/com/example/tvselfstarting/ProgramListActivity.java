@@ -29,6 +29,7 @@ import com.example.tvselfstarting.interfaces.OnRcyItemClickListener;
 import com.example.tvselfstarting.utils.AppUtils;
 import com.example.tvselfstarting.utils.Contants;
 import com.example.tvselfstarting.utils.DataUtils;
+import com.example.tvselfstarting.utils.PinyinUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,12 +104,12 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
             case R.id.btn_programlist_tvway:
                 Toast.makeText(this, "tv自启动方式", Toast.LENGTH_SHORT).show();
                 DataUtils.getInstance(ProgramListActivity.this)
-                        .putString(Contants.startWayKey,Contants.startTvWay);
+                        .putString(Contants.startWayKey, Contants.startTvWay);
                 break;
             case R.id.btn_programlist_tvapp:
                 Toast.makeText(this, "app自启动方式", Toast.LENGTH_SHORT).show();
                 DataUtils.getInstance(ProgramListActivity.this)
-                        .putString(Contants.startWayKey,Contants.startAppWay);
+                        .putString(Contants.startWayKey, Contants.startAppWay);
                 break;
         }
     }
@@ -184,7 +185,7 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
             public void run() {
                 seacherList.clear();
                 for (ProgramInfo programInfo : list) {
-                    if (programInfo.getName().toUpperCase().contains(appName.toUpperCase())) {
+                    if (PinyinUtils.getPingYin(programInfo.getName()).toUpperCase().contains(appName.toUpperCase())) {
                         seacherList.add(programInfo);
                     }
 

@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lb_tv_white"
-        android:hint="请输入搜索app name 支持模糊查询"
+        android:hint="请输入拼音搜索app name 支持模糊查询"
         android:padding="5dp"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/holo_red_dark" />
