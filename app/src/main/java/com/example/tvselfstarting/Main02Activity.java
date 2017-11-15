@@ -78,7 +78,10 @@ public class Main02Activity extends Activity implements View.OnClickListener {
         appPackageName = DataUtils.getInstance(this).getString(Contants.packageNameKey);
         firstActivityName = DataUtils.getInstance(this).getString(Contants.firstActivityKey);
         startWay = DataUtils.getInstance(this).getString(Contants.startWayKey);
-        tvAppDesc.setText("应用名称：" + appName + "\n应用包名：" + appPackageName + "\n第一个启动的Activity：" + firstActivityName);
+        tvAppDesc.setText("应用名称：" + appName +
+                "\n应用包名：" + appPackageName +
+                "\n第一个启动的Activity：" + firstActivityName +
+                "\n启动方式：" + startWay);
 //        Toast.makeText(this, ""+appName, Toast.LENGTH_SHORT).show();
         if (!TextUtils.isEmpty(appPackageName)) {
             try {

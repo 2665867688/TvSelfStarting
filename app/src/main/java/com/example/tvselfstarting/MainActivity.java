@@ -78,7 +78,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         appPackageName = DataUtils.getInstance(this).getString(Contants.packageNameKey);
         firstActivityName = DataUtils.getInstance(this).getString(Contants.firstActivityKey);
         startWay = DataUtils.getInstance(this).getString(Contants.startWayKey);
-        tvAppDesc.setText("应用名称：" + appName + "\n应用包名：" + appPackageName + "\n第一个启动的Activity：" + firstActivityName);
+        tvAppDesc.setText("应用名称：" + appName +
+                "\n应用包名：" + appPackageName +
+                "\n第一个启动的Activity：" + firstActivityName +
+                "\n启动方式：" + startWay);
 //        Toast.makeText(this, ""+appName, Toast.LENGTH_SHORT).show();
         if (!TextUtils.isEmpty(appPackageName)) {
             try {
@@ -116,7 +119,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.btn_main_thisselfstart://设置界面
-                Intent intent =  new Intent(Settings.ACTION_SETTINGS);
+                Intent intent = new Intent(Settings.ACTION_SETTINGS);
                 startActivity(intent);
                 break;
         }
