@@ -1,49 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:id="@+id/main_browse_fragment"--><!--android:name="com.example.tvselfstarting.MainFragment"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--tools:context="com.example.tvselfstarting.MainActivity"--><!--tools:deviceIds="tv"--><!--tools:ignore="MergeRootFrame" />-->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_browse_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fillViewport="true">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+    <RelativeLayout
+        android:id="@+id/main_browse_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_red_dark"
-            android:text="注意：\n1.请不要将本程序安装在外置sd卡 \n2.使用前请将本应用程序设置为开机自启"/>
-        <Button
-            android:id="@+id/btn_main_thisselfstart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="点这儿去设置"
-            />
-        <Button
-            android:id="@+id/btn_main_setting_program"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设置自启的应用程序" />
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/img_main_appicon"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注意：\n1.请不要将本程序安装在外置sd卡 \n2.使用前请将本应用程序设置为开机自启"
+                android:textColor="@android:color/holo_red_dark" />
 
-        <TextView
-            android:id="@+id/tv_main_showappdesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btn_main_starapp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="启动其他app测试"/>
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_main_thisselfstart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点这儿去设置" />
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/btn_main_setting_program"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置自启的应用程序" />
 
+            <ImageView
+                android:id="@+id/img_main_appicon"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:id="@+id/tv_main_showappdesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_main_starapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="启动其他app测试" />
+            <Button
+                android:id="@+id/btn_main_starapptv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="启动其他appTV测试" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

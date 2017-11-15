@@ -52,4 +52,11 @@ public class AppUtils {
         intent.setComponent(cn);
         context.startActivity(intent);
     }
+    public static void startTvApp(Context context,String packageName,String activityName){
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_LEANBACK_LAUNCHER);
+        ComponentName cn = new ComponentName(packageName, activityName);
+        intent.setComponent(cn);
+        context.startActivity(intent);
+    }
 }
