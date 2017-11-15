@@ -22,7 +22,7 @@ public class AppUtils {
      * @return
      */
     public static String getActivities(Context activity, String packageName,Intent localIntent) {
-        String activityName = "无首启动activity";
+        String activityName = "";
 //        Intent localIntent = new Intent("android.intent.action.MAIN", null);
 //        localIntent.addCategory("android.intent.category.LAUNCHER");
         List<ResolveInfo> appList = activity.getPackageManager().queryIntentActivities(localIntent, 0);

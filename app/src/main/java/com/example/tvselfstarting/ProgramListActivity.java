@@ -132,9 +132,16 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
                     programInfo.setName((String) packageInfo.applicationInfo.loadLabel(packageManager));
                     programInfo.setIcon(packageInfo.applicationInfo.loadIcon(packageManager));
                     programInfo.setPackageName(packageInfo.packageName);
-                    Intent localIntent = new Intent("android.intent.action.MAIN", null);
-                    localIntent.addCategory("android.intent.category.LEANBACK_LAUNCHER");
-                    programInfo.setFirstActivityName(AppUtils.getActivities(ProgramListActivity.this, packageInfo.packageName, localIntent));
+                    Intent localTvIntent = new Intent("android.intent.action.MAIN", null);
+                    localTvIntent.addCategory("android.intent.category.LEANBACK_LAUNCHER");
+
+                    Intent localAppIntent = new Intent("android.intent.action.MAIN", null);
+                    localAppIntent.addCategory("android.intent.category.LAUNCHER");
+                    String firstActivityName = AppUtils.getActivities(ProgramListActivity.this, packageInfo.packageName, localTvIntent);
+                    if (TextUtils.isEmpty(firstActivityName)) {
+                        firstActivityName= AppUtils.getActivities(ProgramListActivity.this, packageInfo.packageName, localAppIntent);
+                    }
+                    programInfo.setFirstActivityName(firstActivityName);
                     list.add(programInfo);
                 }
                 runOnUiThread(new Runnable() {
@@ -177,8 +184,6 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
             }
         }).start();
     }
-
-
 
 
 }
