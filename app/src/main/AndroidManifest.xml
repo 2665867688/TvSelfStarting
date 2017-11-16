@@ -54,10 +54,7 @@
         <activity android:name=".PlaybackActivity" />
         <activity android:name=".BrowseErrorActivity" />
         <activity
-            android:name=".ProgramListActivity"
-            android:screenOrientation="landscape"
-            android:configChanges="keyboardHidden|orientation"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
+            android:name=".ProgramListActivity"/>
 
         <service
             android:name=".service.MyIntentService"
