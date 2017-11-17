@@ -54,7 +54,8 @@
         <activity android:name=".PlaybackActivity" />
         <activity android:name=".BrowseErrorActivity" />
         <activity
-            android:name=".ProgramListActivity"/>
+            android:name=".ProgramListActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"  />
 
         <service
             android:name=".service.MyIntentService"

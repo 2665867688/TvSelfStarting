@@ -1,11 +1,13 @@
 package com.example.tvselfstarting.adapter;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tvselfstarting.R;
@@ -37,7 +39,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final ProgramInfo programInfo = list.get(position);
         holder.tvName.setText("程序名：" + programInfo.getName());
-        if (programInfo.getIcon()!=null) {
+        if (programInfo.getIcon() != null) {
             holder.imgIcon.setImageDrawable(programInfo.getIcon());
         }
         holder.tvPackageName.setText("程序包名：" + programInfo.getPackageName());
@@ -46,6 +48,16 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
             @Override
             public void onClick(View v) {
                 onRcyItemClickListener.onItemClick((RecyclerView) holder.itemView.getParent(), programInfo, position);
+            }
+        });
+        holder.itemView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    holder.itemView.setBackgroundColor(Color.RED);
+                }else {
+                    holder.itemView.setBackgroundColor(Color.WHITE);
+                }
             }
         });
     }
@@ -61,6 +73,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
         TextView tvPackageName;
         TextView tvLauchActivity;
         ImageView imgIcon;
+        RelativeLayout layoutAll;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -68,6 +81,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
             tvLauchActivity = itemView.findViewById(R.id.tv_program_lauchactivity);
             imgIcon = itemView.findViewById(R.id.img_program);
             tvPackageName = itemView.findViewById(R.id.tv_program_packagename);
+            layoutAll = itemView.findViewById(R.id.layout_item_programlist);
         }
     }
 

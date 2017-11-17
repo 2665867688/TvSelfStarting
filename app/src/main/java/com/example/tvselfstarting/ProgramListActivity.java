@@ -57,7 +57,7 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
 
     private Button btnTvWay;
     private Button btnAppWay;
-
+    private Button btnGoneEdit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +77,8 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
         btnTvWay.setOnClickListener(this);
         btnAppWay = findViewById(R.id.btn_programlist_tvapp);
         btnAppWay.setOnClickListener(this);
+        btnGoneEdit = findViewById(R.id.btn_programlist_visableedit);
+        btnGoneEdit.setOnClickListener(this);
 
         recyclerView = findViewById(R.id.recyclerview_programlist);
         list = new ArrayList<>();
@@ -110,6 +112,11 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
                 Toast.makeText(this, "app自启动方式", Toast.LENGTH_SHORT).show();
                 DataUtils.getInstance(ProgramListActivity.this)
                         .putString(Contants.startWayKey, Contants.startAppWay);
+                break;
+            case R.id.btn_programlist_visableedit:
+                etSeacher.setFocusable(true);
+                etSeacher.setEnabled(true);
+                etSeacher.setVisibility(View.VISIBLE);
                 break;
         }
     }
