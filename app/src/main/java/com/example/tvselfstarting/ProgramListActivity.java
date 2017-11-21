@@ -58,6 +58,7 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
     private Button btnTvWay;
     private Button btnAppWay;
     private Button btnGoneEdit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,8 +115,6 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
                         .putString(Contants.startWayKey, Contants.startAppWay);
                 break;
             case R.id.btn_programlist_visableedit:
-                etSeacher.setFocusable(true);
-                etSeacher.setEnabled(true);
                 etSeacher.setVisibility(View.VISIBLE);
                 break;
         }
@@ -192,7 +191,7 @@ public class ProgramListActivity extends Activity implements View.OnClickListene
             public void run() {
                 seacherList.clear();
                 for (ProgramInfo programInfo : list) {
-                    if (PinyinUtils.getPingYin(programInfo.getName()).toUpperCase().contains(appName.toUpperCase())) {
+                    if (PinyinUtils.getPingYin(programInfo.getName()).toUpperCase().contains(PinyinUtils.getPingYin(appName).toUpperCase())) {
                         seacherList.add(programInfo);
                     }
 

@@ -27,21 +27,22 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(ACTION)) {
-            appPackageName = DataUtils.getInstance(context).getString(Contants.packageNameKey);
-            firstActivityName = DataUtils.getInstance(context).getString(Contants.firstActivityKey);
-            startWay = DataUtils.getInstance(context).getString(Contants.startWayKey);
-            if (!TextUtils.isEmpty(appPackageName) && !TextUtils.isEmpty(firstActivityName)) {
-                if (startWay.equals(Contants.startAppWay)) {
-                    Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
-                    AppUtils.startApp(context, appPackageName, firstActivityName);
-                } else if (startWay.equals(Contants.startTvWay)) {
-                    Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
-                    AppUtils.startTvApp(context, appPackageName, firstActivityName);
-                } else {
-                    Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
-                    AppUtils.startApp(context, appPackageName, firstActivityName);
-                }
-            }
+        Toast.makeText(context, "自启动", Toast.LENGTH_SHORT).show();
+        appPackageName = DataUtils.getInstance(context).getString(Contants.packageNameKey);
+        firstActivityName = DataUtils.getInstance(context).getString(Contants.firstActivityKey);
+        startWay = DataUtils.getInstance(context).getString(Contants.startWayKey);
+//            if (!TextUtils.isEmpty(appPackageName) && !TextUtils.isEmpty(firstActivityName)) {
+        if (startWay.equals(Contants.startAppWay)) {
+            Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+            AppUtils.startApp(context, appPackageName, firstActivityName);
+        } else if (startWay.equals(Contants.startTvWay)) {
+            Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+            AppUtils.startTvApp(context, appPackageName, firstActivityName);
+        } else {
+            Toast.makeText(context, "正在启动程序请稍安勿躁", Toast.LENGTH_SHORT).show();
+            AppUtils.startApp(context, appPackageName, firstActivityName);
+        }
+//            }
         }
     }
 }

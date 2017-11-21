@@ -55,7 +55,7 @@
         <activity android:name=".BrowseErrorActivity" />
         <activity
             android:name=".ProgramListActivity"
-            android:windowSoftInputMode="stateHidden|stateUnchanged"  />
+            android:windowSoftInputMode="adjustResize|stateHidden"  />
 
         <service
             android:name=".service.MyIntentService"
